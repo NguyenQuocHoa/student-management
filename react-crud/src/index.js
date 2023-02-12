@@ -12,24 +12,26 @@ import Dashboard from "./views/dashboard";
 import Notify from "./views/notify";
 import Setting from "./views/setting";
 import JobCategory from "./views/job/jobCategory";
+import Student from "./views/student";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <React.StrictMode>
-        <HashRouter>
-            <Routes>
-                <Route path="/" element={<App />} />
-                <Route path="user/login" element={<Login />} />
-                <Route path="user/signup" element={<SignUp />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/job" element={<Job />} />
-                <Route path="/job/:id" element={<JobCategory />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/notify" element={<Notify />} />
-                <Route path="/setting" element={<Setting />} />
-            </Routes>
-        </HashRouter>
-    </React.StrictMode>
+  <React.StrictMode>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="user/login" element={<Login />} />
+        <Route path="user/signup" element={<SignUp />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/job" element={<Job />} />
+        <Route path="/job/:id" element={<JobCategory />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/notify" element={<Notify />} />
+        <Route path="/setting" element={<Setting />} />
+        <Route path="/student" element={<Student />} />
+      </Routes>
+    </HashRouter>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

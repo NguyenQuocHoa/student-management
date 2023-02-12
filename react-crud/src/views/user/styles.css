@@ -34,6 +34,10 @@
   height: calc(100vh - 32px);
 }
 
+.container-login .input-username, .container-sign-up .input-username {
+  padding-right: 30px;
+}
+
 .container-sign-up .ant-picker {
   width: 100%;
 }
@@ -58,7 +62,8 @@
   border-bottom: 1px solid #fff;
 }
 
-.ant-form-item-control-input input {
+.container-login .ant-form-item-control-input input, 
+.container-sign-up .ant-form-item-control-input input {
   color: #fff;
 }
 
@@ -100,3 +105,7 @@
 .ant-typography.lnk-signup {
   color: #fff;
 }
+
+.container-login .ant-form-item, .container-sign-up .ant-form-item {
+  justify-content: center;
+} 

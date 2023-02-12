@@ -111,7 +111,7 @@ const SignUp = () => {
                         size="large"
                         placeholder="Username"
                         bordered={false}
-                        className="input-have-bb"
+                        className="input-have-bb input-username"
                         prefix={<UserOutlined />}
                     />
                 </Form.Item>
@@ -148,7 +148,7 @@ const SignUp = () => {
                         size="large"
                         placeholder="E-mail"
                         bordered={false}
-                        className="input-have-bb"
+                        className="input-have-bb input-username"
                         prefix={<MailOutlined />}
                     />
                 </Form.Item>
@@ -166,7 +166,7 @@ const SignUp = () => {
                         size="large"
                         placeholder="Date of Birth"
                         bordered={false}
-                        className="input-have-bb"
+                        className="input-have-bb input-username"
                         suffixIcon={<GiftOutlined style={{ fontSize: 16 }} />}
                     />
                 </Form.Item>

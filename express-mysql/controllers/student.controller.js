@@ -11,15 +11,46 @@ const CONFIG = require("../config");
  * @return      : {res} response
  * @return      : {next} callback function if have error
  * @created     : 2023/01/11
+ * @modified    : 2023/02/12 add condition search
  */
 exports.getStudents = (req, res, next) => {
   let kw = req.query.kw;
+  let sortOrder = req.query.sortOrder;
   let limit = req.query.limit ?? 10;
   let offset = req.query.offset ?? 0;
-  let sql = mysql.format(
-    "SELECT id, MaHocSinh, HoHocSinh, TenHocSinh, Diem1, Diem2, Diem3 FROM hocsinh LIMIT ? OFFSET ?",
-    [limit * 1, offset * 1]
-  );
+  let fromDate = req.query.fromDate;
+  let toDate = req.query.toDate;
+  let params = [];
+  let condition = "";
+  if (kw == null) {
+    condition = `SELECT id, MaHocSinh, HoHocSinh, TenHocSinh, NgaySinh, GioiTinh, Diem1, Diem2, Diem3, TinhTrang 
+              FROM hocsinh`;
+    if (fromDate && toDate) {
+      params.push(fromDate);
+      params.push(toDate);
+      condition += " WHERE NgaySinh BETWEEN ? AND ? ";
+    }
+  } else {
+    condition = `SELECT id, MaHocSinh, HoHocSinh, TenHocSinh, NgaySinh, GioiTinh, Diem1, Diem2, Diem3, TinhTrang 
+                  FROM hocsinh WHERE TenHocSinh LIKE ? ? ?`;
+    params.push(...["%", kw, "%"]);
+    if (fromDate && toDate) {
+      params.push("2000-11-01");
+      params.push("2020-11-01");
+
+      condition += " AND NgaySinh BETWEEN ? AND ? ";
+    }
+  }
+  if (sortOrder === "true") {
+    condition += " ORDER BY TenHocSinh ASC ";
+  } else {
+    condition += " ORDER BY TenHocSinh DESC ";
+  }
+  condition += "LIMIT ? OFFSET ?";
+  params.push(...[limit * 1, offset * 1]);
+
+  let sql = mysql.format(condition, params);
+  console.log(sql);
   connection.query(sql, (err, students) => {
     if (err) {
       next({

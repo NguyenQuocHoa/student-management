@@ -1,0 +1,20 @@
+.search-form-container .ant-picker.ant-picker-range {
+    width: 100%;
+}
+
+.search-form-container .ant-btn {
+    width: 120px;
+}
+
+.search-form-container .action {
+    padding-right: 130px;
+}
+
+.table-student-container {
+    padding: 16px;
+}
+
+.table-student-container thead th.ant-table-cell {
+    background-color: #40a9ff;
+    color: white;
+}
