@@ -1,0 +1,1 @@
+xcopy /s /y "D:\student-management\react-crud\build" "D:\student-management\express-mysql\views"
