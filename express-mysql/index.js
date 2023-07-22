@@ -4,6 +4,7 @@ const cors = require("cors");
 const app = express();
 
 const PORT = 8080;
+// http://localhost:8080/#/{pageName} find page in react-app/src/index.js
 const PATH_STATIC_RESOURCE_REACT = __dirname + "/views/";
 
 const Logger = require("./middlewares/logger.middleware");
